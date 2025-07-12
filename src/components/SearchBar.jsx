@@ -53,32 +53,32 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <div className="relative w-full max-w-md">
-      <div className="flex gap-2">
-        <input
-          type="text"
-          placeholder="Enter city name..."
-          value={query}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          className="flex-1 px-4 py-3 rounded-xl shadow-md text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-        />
-        <button
-          onClick={() => {
-            onSearch(query);
-            setSuggestions([]);
-          }}
-          className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-md transition"
-        >
-          Search
-        </button>
-      </div>
-
-      {suggestions.length > 0 && (
-        <SuggestionList suggestions={suggestions} onSelect={handleSelect} />
-      )}
+  <div className="relative w-full max-w-md">
+    <div className="flex gap-2 backdrop-blur-lg bg-white/30 border border-white/20 shadow-inner p-2 rounded-2xl">
+      <input
+        type="text"
+        placeholder="Enter city name.."
+        value={query}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        className="flex-1 px-4 py-3 rounded-xl bg-white/20 backdrop-blur-md text-black placeholder-black shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400 selection:bg-blue-300 selection:text-black transition"
+      />
+      <button
+        onClick={() => {
+          onSearch(query);
+          setSuggestions([]);
+        }}
+        className="px-5 py-3 bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold rounded-xl shadow-md hover:brightness-110 transition"
+      >
+        Search
+      </button>
     </div>
-  );
+
+    {suggestions.length > 0 && (
+      <SuggestionList suggestions={suggestions} onSelect={handleSelect} />
+    )}
+  </div>
+);
 }
 
 export default SearchBar;
