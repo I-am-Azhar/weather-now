@@ -32,8 +32,8 @@ A modern, responsive weather app built using **React + Vite**, styled with **Tai
 
 ## 🖼️ Screenshots
 
-![Screenshot 1](./screenshots/screenshot1.png)  
-![Screenshot 2](./screenshots/screenshot2.png)
+![Screenshot 1](./public/screenshots/screenshot1.png)  
+![Screenshot 2](./public/screenshots/screenshot2.png)
 
 ---
 
