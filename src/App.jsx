@@ -65,25 +65,26 @@ const BackgroundClouds = () => (
     <img
       src="/cloud2.svg"
       alt="cloud"
-      className="absolute top-10 left-5 w-32 opacity-20 z-0 animate-cloud-slow"
+      className="absolute top-10 left-5 w-20 sm:w-32 md:w-40 lg:w-52 opacity-20 z-0 animate-cloud-slow"
     />
     <img
       src="/cloud1.svg"
       alt="cloud"
-      className="absolute top-32 right-20 w-24 opacity-25 z-0 animate-cloud-fast"
+      className="absolute top-32 right-20 w-16 sm:w-24 md:w-32 lg:w-40 opacity-25 z-0 animate-cloud-fast"
     />
     <img
       src="/cloud1.svg"
       alt="cloud"
-      className="absolute bottom-10 left-20 w-48 opacity-30 z-0 animate-cloud-medium"
+      className="absolute bottom-10 left-20 w-24 sm:w-36 md:w-44 lg:w-56 opacity-30 z-0 animate-cloud-medium"
     />
     <img
       src="/cloud2.svg"
       alt="cloud"
-      className="absolute bottom-32 right-10 w-36 opacity-20 z-0 animate-cloud-slow"
+      className="absolute bottom-32 right-10 w-20 sm:w-28 md:w-36 lg:w-48 opacity-20 z-0 animate-cloud-slow"
     />
   </>
 );
+
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center justify-center px-4 py-10">
