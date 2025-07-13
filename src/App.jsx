@@ -16,6 +16,7 @@ function App() {
   const [greetingIndex, setGreetingIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
+  
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState(null);
 
