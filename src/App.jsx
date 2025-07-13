@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
 
+
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const greetings = [
@@ -26,17 +27,14 @@ function App() {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + currentGreeting[charIndex]);
         setCharIndex((prev) => prev + 1);
-      }, 80); // Typing speed
-
+      }, 80);
       return () => clearTimeout(timeout);
     } else {
-      // Wait before rotating to next greeting
       const holdTimeout = setTimeout(() => {
         setDisplayedText("");
         setCharIndex(0);
         setGreetingIndex((prev) => (prev + 1) % greetings.length);
-      }, 2000); // Hold time after full greeting
-
+      }, 2000);
       return () => clearTimeout(holdTimeout);
     }
   }, [charIndex, greetingIndex]);
@@ -61,15 +59,48 @@ function App() {
     }
   };
 
+// ☁️ Cloud Background with Parallax
+const BackgroundClouds = () => (
+  <>
+    <img
+      src="/cloud2.svg"
+      alt="cloud"
+      className="absolute top-10 left-5 w-32 opacity-20 z-0 animate-cloud-slow"
+    />
+    <img
+      src="/cloud1.svg"
+      alt="cloud"
+      className="absolute top-32 right-20 w-24 opacity-25 z-0 animate-cloud-fast"
+    />
+    <img
+      src="/cloud1.svg"
+      alt="cloud"
+      className="absolute bottom-10 left-20 w-48 opacity-30 z-0 animate-cloud-medium"
+    />
+    <img
+      src="/cloud2.svg"
+      alt="cloud"
+      className="absolute bottom-32 right-10 w-36 opacity-20 z-0 animate-cloud-slow"
+    />
+  </>
+);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center justify-center px-4 py-10">
-      <h1 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 text-center min-h-[2.5rem]">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center justify-center px-4 py-10">
+      {/* ☁️ Animated Cloud Background */}
+      <BackgroundClouds />
+
+      {/* 🔠 Heading with Typing Effect */}
+      <h1 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 text-center min-h-[2.5rem] z-10">
         {displayedText}
         <span className="animate-pulse text-blue-800">|</span>
       </h1>
 
-      <SearchBar onSearch={fetchWeather} />
-      {weather && <WeatherCard weather={weather} />}
+      {/* 🔍 Search Input and Weather Data */}
+      <div className="z-10 w-full max-w-md">
+        <SearchBar onSearch={fetchWeather} />
+        {weather && <WeatherCard weather={weather} />}
+      </div>
     </div>
   );
 }

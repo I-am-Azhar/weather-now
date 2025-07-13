@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+/* Smooth back-and-forth horizontal movement */
+@keyframes cloudFloatRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(250px);
+  }
+}
+
+@keyframes cloudFloatLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-250px);
+  }
+}
+
+/* Use 'alternate' for continuous motion back and forth */
+.animate-cloud-slow {
+  animation: cloudFloatRight 30s ease-in-out infinite alternate;
+}
+
+.animate-cloud-medium {
+  animation: cloudFloatLeft 20s ease-in-out infinite alternate;
+}
+
+.animate-cloud-fast {
+  animation: cloudFloatRight 10s ease-in-out infinite alternate;
+}
+
+/* Optional: Optimize rendering performance */
+img {
+  backface-visibility: hidden;
+  will-change: transform;
+}
